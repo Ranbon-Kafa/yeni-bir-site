@@ -12,23 +12,23 @@ Sisteminizde [Node.js](https://nodejs.org/) yüklü olmalıdır.
 ### 2. Projeyi İndirin
 Terminali açın ve projeyi klonlayın (veya ZIP olarak indirip klasöre çıkartın):
 
-\`\`\`bash
+```bash
 git clone git clone https://github.com/Ranbon-Kafa/yeni-bir-site.git
 cd video-galerisi
-\`\`\`
+```
 
 ### 3. Gerekli Modülleri Kurun
 Projenin çalışması için gereken paketleri indirmek üzere terminale şu komutu girin:
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 *(Bu komut `package.json` dosyasını okuyarak **express**, **multer** ve **express-session** modüllerini otomatik olarak kuracaktır.)*
 
 ### 4. Sunucuyu Başlatın
 Modüller yüklendikten sonra sunucuyu başlatmak için:
-\`\`\`bash
+```bash
 node server.js
-\`\`\`
+```
 
 ### 5. Tarayıcıda Açın
 Sunucu sorunsuz başladığında terminalde bir onay mesajı göreceksiniz. Tarayıcınızı açın ve şu adrese gidin:
