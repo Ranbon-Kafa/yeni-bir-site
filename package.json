@@ -1,0 +1,19 @@
+{
+  "name": "kullanici-sistemi",
+  "version": "1.0.0",
+  "description": "Yerel dosyada kullanıcı kayıt ve giriş sistemi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Senin Adın",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.22.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.1.1"
+  },
+  "keywords": [],
+  "type": "commonjs"
+}

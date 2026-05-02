@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Galerisi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="topbar">
+      <span>Hoş geldin, <span id="displayName">Kullanıcı</span></span>
+      <div>
+        <a href="upload.html" class="btn-secondary">Video Yükle</a>
+        <button onclick="logout()" class="btn-danger">Çıkış Yap</button>
+      </div>
+    </div>
+
+    <h2>Yüklenen Videolar</h2>
+    <div id="videoList" class="video-grid">
+      <p>Yükleniyor...</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const username = localStorage.getItem("username");
+    if (!username) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("displayName").innerText = username;
+    }
+  </script>
+</body>
+</html>

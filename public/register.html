@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayıt Ol</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h2>Kayıt Ol</h2>
+    <input type="text" id="username" placeholder="Kullanıcı Adı" required />
+    <input type="password" id="password" placeholder="Şifre" required />
+    <input type="password" id="confirmPassword" placeholder="Şifre Tekrar" required />
+    
+    <label style="display: block; margin-top: 10px; font-size: 14px; text-align: left;">Profil Fotoğrafı:</label>
+    <input type="file" id="photo" accept="image/*" />
+    <img id="preview" class="preview" style="display: none;" />
+    
+    <button onclick="register()">Kayıt Ol</button>
+    <p id="result" style="color: #333; margin-top: 10px; font-weight: bold;"></p>
+    <p style="margin-top: 15px;">Zaten hesabın var mı? <a href="login.html">Giriş Yap</a></p>
+  </div>
+
+  <script>
+    const photoInput = document.getElementById("photo");
+    const preview = document.getElementById("preview");
+
+    photoInput.addEventListener("change", () => {
+      const file = photoInput.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+      }
+    });
+
+    function register() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const photo = document.getElementById("photo").files[0];
+
+      if (!username || !password) return alert("Kullanıcı adı ve şifre zorunludur!");
+      if (password !== confirmPassword) return alert("Şifreler eşleşmiyor!");
+
+      const formData = new FormData();
+      formData.append("username", username);
+      formData.append("password", password);
+      if (photo) formData.append("photo", photo);
+
+      fetch("/register", { method: "POST", body: formData })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("result").innerText = data.message;
+        if (data.success) setTimeout(() => window.location.href = "login.html", 1500);
+      })
+      .catch(() => {
+        document.getElementById("result").innerText = "Kayıt olurken bir hata oluştu.";
+      });
+    }
+  </script>
+</body>
+</html>

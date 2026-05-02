@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Yükle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h2>Video Yükle</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="video" accept="video/*" required />
+      <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Desteklenen Formatlar: MP4, MOV, WEBM, AVI, MKV (Maks 100MB)</p>
+      <button type="submit">Yüklemeyi Başlat</button>
+    </form>
+    <p style="margin-top: 20px;"><a href="index.html">Ana Sayfaya Dön</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giriş Yap</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h2>Giriş Yap</h2>
+    <input type="text" id="username" placeholder="Kullanıcı Adı" />
+    <input type="password" id="password" placeholder="Şifre" />
+    <button onclick="login()">Giriş</button>
+    <p id="result" style="color: red; margin-top: 10px; font-weight: bold;"></p>
+    <p style="margin-top: 15px;">Hesabın yok mu? <a href="register.html">Kayıt Ol</a></p>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (!username || !password) {
+        document.getElementById("result").innerText = "Lütfen tüm alanları doldurun.";
+        return;
+      }
+
+      fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          localStorage.setItem("username", username);
+          window.location.href = "index.html";
+        } else {
+          document.getElementById("result").innerText = data.message || "Hatalı giriş";
+        }
+      })
+      .catch(() => {
+        document.getElementById("result").innerText = "Sunucuya bağlanılamadı!";
+      });
+    }
+  </script>
+</body>
+</html>
