@@ -12,7 +12,7 @@ Sisteminizde [Node.js](https://nodejs.org/) yüklü olmalıdır.
 ### 2. Projeyi İndirin
 Terminali açın ve projeyi klonlayın (veya ZIP olarak indirip klasöre çıkartın):
 \`\`\`bash
-git clone https://github.com/SENIN-KULLANICI-ADIN/video-galerisi.git
+git clone git clone https://github.com/Ranbon-Kafa/yeni-bir-site.git
 cd video-galerisi
 \`\`\`
 
